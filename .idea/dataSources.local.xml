@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="MySQL - test1@172.17.0.6" uuid="8b01520f-bf9f-4d20-9c34-ca21c87e4924">
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+    </data-source>
+    <data-source name="PostgreSQL - resttest@127.0.0.1" uuid="2f8f051f-d6c0-4f02-af39-40f45d48eb1d">
+      <secret-storage>master_key</secret-storage>
+      <user-name>resttest</user-name>
+    </data-source>
+  </component>
+</project>

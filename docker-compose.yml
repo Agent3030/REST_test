@@ -1,0 +1,42 @@
+data:
+   image: busybox:latest
+   ports:
+     - "127.0.0.1:2200:22"
+   volumes:
+     - .:/var/www/REST_test
+
+   tty: true
+
+fpm:
+  build: docker/php
+  volumes_from:
+    - data
+
+
+#  volumes:
+#    - ./docker/php/:/usr/local/etc/php/
+  expose:
+    - 9000
+  links:
+    - db
+
+nginx:
+  image: nginx:latest
+  volumes_from:
+    - data
+
+  ports:
+    - "127.0.0.1:8000:80"
+  volumes:
+    - ./docker/nginx/:/etc/nginx/conf.d/
+  links:
+    - fpm
+
+db:
+  image: postgres
+  ports:
+    - "54320:5432"
+  environment:
+    POSTGRES_PASSWORD: resttest
+    POSTGRES_USER: resttest
+    POSTGRES_DB: resttest
