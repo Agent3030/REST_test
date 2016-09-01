@@ -8,5 +8,5 @@ app for testing Yii2 REST server and AngularJS(1.xx) frontend
 * [Фронтенд]() 
 
 **Установка**
-Для простоты работы с приложением, была использована технологии [Docker](www.docker.com) и Docker-compose.
+Для простоты работы с приложением, была использована технологии [Docker](https://www.docker.com/) и Docker-compose.
  
