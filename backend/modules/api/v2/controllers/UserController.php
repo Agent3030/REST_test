@@ -14,6 +14,15 @@ use app\modules\api\v1\resources\User;
 class UserController extends ActiveController
 {
     public $modelClass = 'app\modules\api\v2\resources\User';
+    public function behaviors()
+    {
+        return
+            \yii\helpers\ArrayHelper::merge(parent::behaviors(), [
+                'corsFilter' => [
+                    'class' => \yii\filters\Cors::className(),
+                ],
+            ]);
+    }
 
 }
 

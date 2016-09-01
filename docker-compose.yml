@@ -27,8 +27,12 @@ nginx:
 
   ports:
     - "127.0.0.1:8000:80"
+    - "127.0.0.1:8001:81"
   volumes:
-    - ./docker/nginx/:/etc/nginx/conf.d/
+    - ./docker/nginx/vhost/:/etc/nginx/conf.d/
+# - ./docker/nginx/host/:/etc/
+
+
   links:
     - fpm
 
