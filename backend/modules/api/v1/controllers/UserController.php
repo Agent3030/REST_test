@@ -11,10 +11,19 @@ use app\modules\api\v1\resources\User;
  * @var object $modelClass
  */
 
+
 class UserController extends ActiveController
 {
     public $modelClass = 'app\modules\api\v1\resources\User';
-
+    public function behaviors()
+    {
+        return
+            \yii\helpers\ArrayHelper::merge(parent::behaviors(), [
+                'corsFilter' => [
+                    'class' => \yii\filters\Cors::className(),
+                ],
+            ]);
+    }
     /**
      * custom REST action to get courses list for every Student
     * @param $id integer

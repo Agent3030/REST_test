@@ -27,27 +27,35 @@ class User extends \app\models\User
     /**
      * @return  array
      */
+
+    public function behaviors()
+    {
+        return
+            \yii\helpers\ArrayHelper::merge(parent::behaviors(), [
+                'corsFilter' => [
+                    'class' => \yii\filters\Cors::className(),
+                ],
+            ]);
+    }
     public function fields()
     :array {
-        return ['id', 'name', 'created_at', 'updated_at'];
-    }
-
-    public function extraFields()
-    :array {
-        return ['lessons' => function($model){
+        return ['id', 'name', 'created_at', 'updated_at','lessons' => function($model){
             $lesson_out = [];
             $i=1;
             $lessons = $model->userToLessons;
-            foreach ($lessons as $lesson){
+            foreach ($lessons as $lesson) {
                 $lesson_id = $lesson['lesson_id'];
 
-                $lesson = Lesson::find()->where(['id'=>$lesson_id])->all();
+                $lesson = Lesson::find()->where(['id' => $lesson_id])->all();
                 foreach ($lesson as $lname) {
-                    $lesson_out['lesson'.'#'.$i] = $lname->name;
+                    $lesson_out['lesson' . '#' . $i] = $lname->name;
                     $i++;
                 }
             }
             return $lesson_out;
         }];
+
     }
+
+
 }
