@@ -37,6 +37,7 @@ app for testing Yii2 REST server and AngularJS(1.xx) frontend
 
 Далее в каталоге _/backend_ выполните миграции базы данных:
 
+
     $ docker exec -it resttest_php_1 bash
     $ cd /var/www/REST_test/backend
     $ php yii migrate/up

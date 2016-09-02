@@ -1,4 +1,8 @@
 node_modules/
+<<<<<<< HEAD
+=======
+bower_components/
+>>>>>>> f229b4a805eb347bda4a7692750cced18503923e
 
 .sass-cache/
 
